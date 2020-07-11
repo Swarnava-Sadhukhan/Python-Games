@@ -4,23 +4,27 @@ import random
 from tkinter import messagebox
 from random import shuffle
 
+#stores correct words
 answer=["python","jumble","happy","location","love","dark","ticket"]
 words=[]
 
+#stores shuffled words in a list
 for i in answer:
     word=list(i)
     shuffle(word)
     words.append(word)
 
-print(len(words))
-num=random.randint(0,len(words))
-print(num)
 
+#selects random jumbled word
+num=random.randint(0,len(words))
+
+#set initial word
 def initial():
     global words,num
     lb1.config(text=words[num])
 
 
+#changes word 
 def Reset():
     global words, num, answer
     num = random.randint(0, len(words))
@@ -28,6 +32,7 @@ def Reset():
     e1.delete(0, END)
 
 
+#checks answer
 def ans_check():
     global words,num,answer
     user_input=e1.get()
