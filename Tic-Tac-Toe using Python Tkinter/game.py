@@ -1,16 +1,21 @@
 from tkinter import *
 from tkinter.messagebox import showinfo
 
+#stores the symbol for the present turn
 y=""
+#decides whose turn it is
 x=2
+#stores entries of players
 player_1=[]
 player_2=[]
 f=0
 
+#runs after the player has clicked on a button 
 def define_sign(number):
     global x,y,f
     global player_1,player_2
 
+    #generates all permutations
     from itertools import permutations
     set1 = permutations([1, 2, 3])
     set2 = permutations([4, 5, 6])
@@ -40,7 +45,7 @@ def define_sign(number):
 
     if number==1:
         if x%2==0:
-            if 1 in player_1 or 1 in player_2:
+            if 1 in player_1 or 1 in player_2:  #checks for valid entry
                 f=1
             if f==0:
                 y='X'
@@ -205,6 +210,7 @@ def define_sign(number):
         f=0
 
 
+#resets boxes
 def clear():
     b1.configure(text="")
     b2.configure(text="")
